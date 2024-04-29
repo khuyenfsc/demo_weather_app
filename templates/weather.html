@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../static/css_file/css-file.css">
+    </head>
+    <body>
+        <form class="form" action="{{url_for('get_city')}}" method="post">
+            <input type="text" name="city_name" placeholder="Name City" class="input" autofocus required>
+            <button class="button">Go</button> 
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="danger">
+                        <span>{{message}}</span>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        {% for information in informations %}
+        <div class="weather-side">
+            <img src="{{information['icon']}}" class="weather_icon">
+            <div class="city_name">{{information['name']}}</div>
+            <div class="temp">{{information['temp']}}&#176C</div>
+            <div class="details">{{information['description']}}</div>
+        </div>
+        {% endfor %}
+    </body>
+</html>
+
+    
