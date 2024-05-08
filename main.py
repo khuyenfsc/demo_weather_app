@@ -2,7 +2,7 @@ import requests
 from flask import Flask, render_template, request, flash, url_for, redirect
 informations = []
 def get_infor(city_name):
-    response_infors = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API KEY}").json()
+    response_infors = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API}").json()
     return response_infors
 
 app = Flask(__name__)
